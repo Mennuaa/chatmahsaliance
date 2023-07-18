@@ -3,7 +3,8 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ConversationController;
 use App\Http\Controllers\Api\ProfileController;
-use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\PusherAuthController;
 use Artisan as GlobalArtisan;
 use Illuminate\Console\Events\ArtisanStarting;
 use Illuminate\Foundation\Providers\ArtisanServiceProvider;
@@ -44,3 +45,4 @@ Route::middleware('auth:sanctum')->group(function () {
     
 });
 Route::post('logout',[AuthController::class, 'logout']);
+Route::post('/pusher/auth', [PusherAuthController::class, 'authenticate']);
